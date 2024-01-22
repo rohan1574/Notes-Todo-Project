@@ -30,18 +30,21 @@ const CreateTask = ({tasks, setTasks}) => {
         toast.success('Successfully toasted!')
     };
     return (
-        <div className='flex justify-end mt-5'>
-            <button className='border border-neutral-300 rounded-lg py-1.5 px-10 bg-blue-500 hover:bg-blue-600 text-white' onClick={() => setOpen(true)}>
-                Open
+        <div className='flex justify-end mt-5 bg-green-400 h-56'>
+            <div>
+            <button className='border border-neutral-300 rounded-lg py-1.5 px-8 mr-10 mt-10 bg-white text-2xl font-bold  text-green-400' onClick={() => setOpen(true)}>
+                New Task
             </button>
+            </div>
 
             <Modal open={open} onClose={() => setOpen(false)}>
-                <div className="text-center w-96 h-56">
+                <div className="text-center w-96 h-40">
 
                     <div size={56} className="mx-auto text-green-500" />
                     <div className="mx-auto ">
                         <form onSubmit={handle}>
-                            <input className='border mr-4 border-slate-400 bg-slate-100 rounded-md h-24 w-60' type="text" value={task.name} onChange={(e)=> setTask({...task, id: uuidv4(), name:e.target.value })} />
+                        {/* <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" /> */}
+                            <input placeholder="Type here" className='border mr-4  border-slate-400 bg-slate-100 rounded-md h-20 w-60' required type="text" value={task.name} onChange={(e)=> setTask({...task, id: uuidv4(), name:e.target.value })} />
                             <button className='bg-cyan-500 rounded-md px-4 h-12 text-white'>create</button>
                         </form>
                     </div>
